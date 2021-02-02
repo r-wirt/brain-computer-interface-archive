@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Archive of Brain Computer Interface Technology Journal Articles</title>
+</head>
+<body>
+    {% include 'articles/navigation.html' %}
+
+  <div class="about-bci">
+    <p>About</p>
+    <div>
+      This project is meant to aggregate relevant Brain-Computer Interface journal articles in one place.
+      Currently, the application of this technology is in it’s early stages, however it has the potential to
+      leave a lasting impression in the improvement of hearing, vision, and mobility among affected individuals.
+      Medical needs such as stroke rehabilitation, prosthetic control,  and paralysis recovery are a few examples of subjects that can benefit greatly
+      from BCI innovation. This site highlights the relevant discoveries and challenges ahead on the subject of this exciting technology.
+
+    </div>
+
+    </div>
+
+  </body>
+  </html>

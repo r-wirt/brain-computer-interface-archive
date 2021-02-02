@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300&display=swap');
+
+
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.profile-authors{
+
+  text-decoration: underline white;
+  font-size: 15px;
+  margin-top: 5px;
+
+
+}
+
+.profile-authors span{
+  margin-right:10px;
+}
+
+.profile-abstract{
+  margin-top: 10px;
+}
+
+.profile-abstract span{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-oa{
+
+   margin-top: 20px;
+   text-align: center;
+   width:80px;
+   color:green;
+   font-size: 10px;
+   border: green solid 1px;
+   cursor:default;
+}
+
+.article-profile{
+
+
+  font-family: 'Nunito';
+  margin-top: 150px;
+  margin-bottom:20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding:20px;
+  background-color: rgba(85, 104, 135, 0.1);
+  color: white;
+  width:800px;
+  border-radius: 4px;
+
+
+}
+
+.profile-doi a{
+  text-decoration: underline green;
+}
+
+.profile-published-date {
+     height:10px;
+     margin-top: 5px;
+     margin-bottom: 10px;
+}
+
+.profile-journal{
+
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-style: italic;
+
+}
+
+.profile-title{
+   margin-bottom: 0px;
+   font-size: 30px;
+
+}

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Archive of Brain Computer Interface Technology Journal Articles</title>
+</head>
+<body>
+
+  {% include 'articles/navigation.html' %}
+
+  <div class="homepage">
+          <div class="objective">
+          <p>Providing relevant journal-articles related to brain computer interface innovation.</p>
+          </div>
+
+          <span class="most-recent">Most Recent</span>
+          <div class="home-article-list animated fadeIn">
+            {% for recentpost in recentposts %}
+            <div class='home-article-item'>
+               <p> <a href="/article/?article={{recentpost.title}}">{{ recentpost.title }}</a> </p>
+                  <span class="home-article-item-publisher">{{ recentpost.journal }} by {{ recentpost.publisher }}</span>
+                  <br/>
+
+                  <div class="home-article-item-authors">
+                      {% for author in recentpost.authors %}
+                     {{  author }}
+                      {% endfor %}
+                  </div>
+
+               </div>
+
+            {% endfor %}
+
+                  </div>
+
+                  <div class="home-topic-section">
+                    <p>Brain-Computer Interface Journal-Articles by Subject</p>
+
+                    <div class="rehab-topic">
+                       <span><a href="/search/?term=rehabilitation">Health & Rehabilitation</a></span>
+                       {% for article in healthandrehab %}
+                       <p><a href="/article/?article={{article.title}}">{{ article.title }}</a></p>
+                       {% endfor %}
+                    </div>
+
+                  <div class="communication-topic">
+                     <span><a href="/search/?term=communication">Communication</a></span>
+                     {% for article in communication %}
+                     <p><a href="/article/?article={{article.title}}">{{ article.title }}</a></p>
+                     {% endfor %}
+                  </div>
+
+                    <div class="learning-topic">
+                         <span><a href="/search/?term=invasive+implant">Invasive / Implant BCI</a></span>
+                         {% for article in implant %}
+                          <p><a href="/article/?article={{article.title}}">{{ article.title }}</a></p>
+                         {% endfor %}
+                    </div>
+            </div>
+
+            <div class="define-bci">
+              <span>Defining Brain-Computer Interface Technology
+              </span>
+              <br>
+              <span><i> from <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface" target="blank">Wikipedia</a></i></span>
+              <p>A brain–computer interface (BCI), sometimes called a neural-control interface (NCI),
+              mind-machine interface (MMI), direct neural interface (DNI), or brain–machine interface (BMI),
+              is a direct communication pathway between an enhanced or wired brain and an external device. BCI
+              differs from neuromodulation in that it allows for bidirectional information flow. BCIs are often
+              directed at researching, mapping, assisting, augmenting, or repairing human cognitive or sensory-motor
+              functions.</p>
+            </div>
+
+        </div>
+
+</body>
+</html>

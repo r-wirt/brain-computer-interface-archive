@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <!---Google analytics here ---->
+    <meta charset="utf-8" />
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Archive of Brain Computer Interface Technology Journal Articles</title>
+</head>
+<body>
+  {% include 'articles/navigation.html' %}
+
+
+<!---<div id="overlay">Simple test</div>--->
+  <div class="journal-page">
+
+
+
+  <div class="article-list">
+
+ {% if subjectsearch.showcommunication  %}
+   <div class="subject-communication">
+      <span>Brain Computer Interface Technology for Communication</span>
+     <div>
+         "To advance the state-of-the-art in speech neuroprosthesis, we combined the recent advances in deep learning with the latest
+         innovations in speech synthesis technologies to reconstruct closed-set intelligible speech from the human auditory cortex....These results demonstrate
+         the efficacy of deep learning and speech synthesis algorithms for designing the next generation of speech BCI systems, which not only can restore
+         communications for paralyzed patients but also have the potential to transform human-computer interaction technologies." -
+         <span class="subject-link">
+           <a href="/article/?article=Towards%20reconstructing%20intelligible%20speech%20from%20the%20human%20auditory%20cortex">
+             Towards reconstructing intelligible speech from the human auditory cortex
+           </a>
+         </span>
+    </div>
+      <p>{{ totalresultsfound }} results found</p>
+      <section onClick="toggleAdvancedSearch()"  class="advanced-search"><a href="#">Advanced Search</a></section>
+      <section class="sort-date">
+        <span><a id="relevant" href="/search/?term={{searchrequest}}">Relevant</a></span>
+        <span><a id="most-recent" href="/search/?term={{searchrequest}}&sort=-1">Most Recent</a></span>
+        <span><a id="earliest" href="/search/?term={{searchrequest}}&sort=1">Earliest</a></span>
+       </section>
+    </div>
+
+    {% include 'articles/advancedsearch.html' %}
+  {% endif %}
+
+
+
+    {% if subjectsearch.showrehab %}
+   <div class="subject-rehabilitation">
+     <span>Brain Computer Interface Technology for Rehabilitation</span>
+     <div>
+     "Rehabilitation for stroke patients with severe motor impairments is burdensome and demanding
+     because most of the current rehabilitation options require some volitional movement to train the
+     affected side. However, research has shown that survivors of severe stroke may receive modest
+     benefits from action observation, virtual reality (VR), and brain-computer interfaces (BCIs).
+     These approaches have shown some success in strengthening key motor pathways thought to support
+     motor recovery after stroke." -
+     <span class="subject-link">
+       <a  href="/article/?article=Effects%20of%20a%20Brain-Computer%20Interface%20With%20Virtual%20Reality%20(VR)%20Neurofeedback:%20A%20Pilot%20Study%20in%20Chronic%20Stroke%20Patients">
+         Effects of a Brain-Computer Interface With Virtual Reality (VR) Neurofeedback: A Pilot Study in Chronic Stroke Patients
+       </a>
+     </span>
+    </div>
+    <p>{{ totalresultsfound }} results found</p>
+    <section onClick="toggleAdvancedSearch()"  class="advanced-search"><a href="#">Advanced Search</a></section>
+    <section class="sort-date">
+      <span><a id="relevant" href="/search/?term={{searchrequest}}">Relevant</a></span>
+      <span><a id="most-recent" href="/search/?term={{searchrequest}}&sort=-1">Most Recent</a></span>
+      <span><a id="earliest" href="/search/?term={{searchrequest}}&sort=1">Earliest</a></span>
+     </section>
+  </div>
+
+  {% include 'articles/advancedsearch.html' %}
+  {% endif  %}
+
+
+
+
+  {% if subjectsearch.showinvasive  %}
+ <div class="subject-invasive">
+ <span>Brain Computer Interface Technology: Invasive/Implant </span>
+ <div>
+ "Wireless implants for interaction with the cortex have developed rapidly over the
+ last decade and increasingly meet demands of clinical brain–computer interfaces. For such
+ applications, well-established technologies are available, suitable for recording of neural
+ activity at different spatial scales and adequate for modulating brain activity by cortical electrical
+ stimulation. The incorporation of recording and stimulation into closed-loop systems is a major aim in active, fully
+ implantable medical device design." -
+ <span class="subject-link">
+   <a  href="/article/?article=Closed-loop%20interaction%20with%20the%20cerebral%20cortex%20using%20a%20novel%20micro-ECoG-based%20implant:%20the%20impact%20of%20beta%20vs.%20gamma%20stimulation%20frequencies%20on%20cortico-cortical%20spectral%20responses*">
+     Closed-loop interaction with the cerebral cortex: a review of wireless implant technology</a>
+   </span>
+</div>
+<p>{{ totalresultsfound }} results found</p>
+<section onClick="toggleAdvancedSearch()"  class="advanced-search"><a href="#">Advanced Search</a></section>
+<section class="sort-date">
+  <span><a id="relevant" href="/search/?term={{searchrequest}}">Relevant</a></span>
+  <span><a id="most-recent" href="/search/?term={{searchrequest}}&sort=-1">Most Recent</a></span>
+  <span><a id="earliest" href="/search/?term={{searchrequest}}&sort=1">Earliest</a></span>
+ </section>
+</div>
+
+{% include 'articles/advancedsearch.html' %}
+{% endif %}
+
+{% if subjectsearch.standardsearch  %}
+ <div class="search-headline">
+
+   <br>
+   <p>{{ totalresultsfound }} results found for '{{ searchrequest }}'</p>
+   <section onClick="toggleAdvancedSearch()"  class="advanced-search"><a href="#">Advanced Search</a></section>
+   <section class="sort-date">
+     <span><a id="relevant" href="/search/?term={{searchrequest}}">Relevant</a></span>
+     <span><a id="most-recent" href="/search/?term={{searchrequest}}&sort=-1">Most Recent</a></span>
+     <span><a id="earliest" href="/search/?term={{searchrequest}}&sort=1">Earliest</a></span>
+    </section>
+ </div>
+
+ {% include 'articles/advancedsearch.html' %}
+ {% endif %}
+
+ {% if subjectsearch.advancedsearch %}
+ <div class="search-headline">
+
+   <br>
+   <p>{{ totalresultsfound }} results found for '{{ searchrequest }}' between {{ subjectsearch.fromdate}} and {{ subjectsearch.todate }}</p>
+
+   <section onClick="toggleAdvancedSearch()" class="advanced-search"><a href="#">Advanced Search</a></section>
+   <section class="sort-date">
+     <span><a id="relevant" href="/search/?fromdate={{subjectsearch.fromdate}}&todate={{subjectsearch.todate}}&term={{searchrequest}}{{subjectsearch.openaccess}}">Relevant</a></span>
+     <span><a id="most-recent" href="/search/?fromdate={{subjectsearch.fromdate}}&todate={{subjectsearch.todate}}&term={{searchrequest}}&sort=-1{{subjectsearch.openaccess}}">Most Recent</a></span>
+     <span><a id="earliest" href="/search/?fromdate={{subjectsearch.fromdate}}&todate={{subjectsearch.todate}}&term={{searchrequest}}&sort=1{{subjectsearch.openaccess}}">Earliest</a></span>
+    </section>
+ </div>
+ {% include 'articles/advancedsearch.html' %}
+ {% endif %}
+
+
+
+ {% for result in searchresults %}
+
+    <div class='article-item  animated fadeIn'>
+      <p><a href="/article/?article={{result.title}}">{{ result.title }}</a></p>
+      <span class="article-source"> {{ result.journal }} by {{ result.publisher }}</span>
+      <br/>
+      <span class="article-item-date-pub"> Published {{result.datepublished|date:"M d Y"}}</span>
+      <br/>
+      <div class="authors">
+        {% for author in result.authors %}
+             <span> {{ author }}</span>
+        {% endfor %}
+      </div>
+      {% if result.isopenaccess %}
+      <div class="article-item-oa">
+          Open Access
+      </div>
+        {% endif %}
+    </div>
+
+
+    {% endfor %}
+
+
+
+     </div>
+
+
+   </div>
+</body>
+
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+<script type="text/javascript">
+
+
+   $("#from-date").datepicker({changeMonth: true, changeYear: true });
+   $("#to-date").datepicker({changeMonth: true, changeYear: true});
+
+
+  ////Check form to make sure all required values are included
+  $('.advanced-form').on('submit', function(event){
+
+      event.preventDefault();
+
+      var fromDate = document.getElementById("from-date").value;
+      var toDate = document.getElementById("to-date").value;
+      var keyword = document.getElementById("keyword").value;
+      ///If the form dates & keyword fields are empty, raise both errors
+      if( fromDate === "" && toDate === "" && keyword === ""){
+          $(".advanced-search-errors").css({"display": "block"});
+          $(".date-field-req").css({ "display" : "block"});
+          $(".keyword-field-req").css({ "display" : "block"});
+
+      //If there is no keyword, and one of the date inputs are the wrong format, raise error
+    }else if(keyword === "" && !/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(fromDate) || keyword === "" && !/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(toDate) ){
+        $(".advanced-search-errors").css({"display": "block"});
+        $(".date-field-req").css({ "display" : "block"});
+        $(".keyword-field-req").css({ "display" : "block"});
+      ////If the date inputs are the wrong format, raise error
+      }else if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(fromDate) || !/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(toDate)){
+        $(".advanced-search-errors").css({"display": "block"});
+        $(".date-field-req").css({ "display" : "block"});
+        $(".keyword-field-req").css({ "display" : "none"});
+
+     ////If there is no keyword, raise error
+      }else if(keyword === "" ){
+        $(".advanced-search-errors").css({"display": "block"});
+        $(".keyword-field-req").css({ "display" : "block"})
+        $(".date-field-req").css({ "display" : "none"});
+      }else{
+        document.advancedSearchForm.submit();
+      }
+
+  });
+
+  ////Underline appropriate sort option when clicked [earliest, most recent, relevant]
+  var currentUrl = window.location.search
+
+  if(currentUrl.includes("sort=1")){
+    document.getElementById("earliest").style.textDecoration = "underline"
+
+  }else if(currentUrl.includes("sort=-1")){
+    document.getElementById("most-recent").style.textDecoration = "underline"
+
+  }else{
+    document.getElementById("relevant").style.textDecoration = " underline"
+
+  }
+
+  var timeline = new TimelineMax();
+
+  var advancedSearchAnimation = timeline.to("div.advancedmodal", 1, {
+    display:'grid',
+    marginLeft:'15px',
+    height:'138px',
+    width:'870px',
+    backgroundColor:'rgba(85, 104, 135, 0.1)',
+    paddingTop: '5px'
+  }).reverse();
+
+  ////Function that opens advanced search form for client
+  function toggleAdvancedSearch (){
+
+    if( advancedSearchAnimation.reversed()){
+
+      advancedSearchAnimation.play();
+      timeline.to(["div.dateinfo", "div.keyword-author-info","input.submit-button","div.open-access-radio"], 0.1, { display:'block'});
+
+    } else {
+
+      $(".advanced-search-errors").css({"display": "none"});
+      advancedSearchAnimation.reverse();
+
+
+
+    }
+
+
+
+  }
+
+
+  ///Show definition of 'Open Access' when hovered
+  tippy('.article-item-oa', { content: "Open access is a method that allows the full content of a research journal article to be available online, free of cost or other barriers", placement: 'right', theme:'openaccess', animateFill:false})
+
+
+
+
+
+
+
+
+</script>
+
+</html>

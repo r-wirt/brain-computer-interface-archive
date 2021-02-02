@@ -1,0 +1,31 @@
+
+
+.journal-list {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  color:white;
+  padding:20px;
+  background-color: rgba(85, 104, 135, 0.1);
+  text-align: center;
+  border-radius: 4px;
+  width: 700px;
+}
+
+.journal-list span{
+  font-size: 30px;
+}
+
+.journal-list p{
+
+  font-size: 15px;
+}
+
+.journal-list a{
+  text-decoration: none;
+  color: white;
+}
+
+.journal-list i{
+  text-decoration: underline white;
+}

@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Archive of Brain Computer Interface Technology Journal Articles</title>
+</head>
+<body>
+  {% include 'articles/navigation.html' %}
+  <div class="journal-page">
+    <div class="article-list">
+      <p id="test" class="most-recent-headline">Most Recent</p>
+      {% for result in searchresults %}
+
+         <div id="{{result.source_link}}" class='article-item  animated fadeIn'>
+           <p><a href="/article/?article={{result.title}}">{{ result.title }}</a></p>
+           <span class="article-source"> {{ result.journal }} by {{ result.publisher }}</span>
+           <br/>
+           <span class="article-item-date-pub"> Published {{result.datepublished|date:"M d Y"}}</span>
+           <br/>
+           <div class="authors">
+             {% for author in result.authors %}
+                  <span> {{ author }}</span>
+             {% endfor %}
+           </div>
+           {% if result.isopenaccess %}
+           <div class="article-item-oa">
+               Open Access
+           </div>
+             {% endif %}
+         </div>
+
+
+         {% endfor %}
+
+      </div>
+    </div>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popper.js@1"></script>
+  <script src="https://unpkg.com/tippy.js@4"></script>
+  <script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+
+      ///Show definition of 'Open Access' when hovered
+      tippy('.article-item-oa', { content: "Open access is a method that allows the full content of research journal articles to be availble online, free of cost or other barriers", placement: 'right', theme:'openaccess', animateFill:false})
+
+
+
+      var startPoint = 12
+      var endPoint = 24
+
+      function loadMoreArticles(){
+
+
+
+      var lastArticle = document.getElementsByClassName("article-list")[0].lastElementChild.id
+
+       $.ajax({
+          type:'GET',
+          url: 'http://localhost:8000/api/',
+          crossDomain: true,
+          dataType: 'html',
+          data:{ startPoint: startPoint, endPoint: endPoint },
+          success: function(data){
+
+            startPoint += 12
+            endPoint += 12
+
+            $(".article-list").append(data);
+            ///Show definition of 'Open Access' when hovered
+            tippy('.article-item-oa', { content: "Open access is a method that allows the full content of a research journal article to be available online, free of cost or other barriers", placement: 'right', theme:'openaccess', animateFill:false})
+
+          },
+          error: function(error){
+            console.log(error)
+          }
+        })
+
+
+
+        console.log(startPoint)
+        console.log(endPoint)
+
+
+      }
+
+      $(window).scroll(function(){
+
+        if($(window).scrollTop() + $(window).height() == $(document).height()){
+          loadMoreArticles();
+        }
+
+      })
+
+ })
+
+
+    </script>
+</html>

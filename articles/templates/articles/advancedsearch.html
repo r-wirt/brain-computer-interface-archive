@@ -1,0 +1,50 @@
+{% load static %}
+<div class="advancedmodal">
+  <form name="advancedSearchForm" class="advanced-form" action="/search/">
+
+    <div class="dateinfo">
+      <span>From</span>
+      <br/>
+      <input id="from-date" class="animated fadeInDown"  name="fromdate" placeholder="mm/dd/yyyy">
+      <br/>
+
+   </div>
+   <div class="dateinfo">
+     <span>To</span>
+     <br/>
+     <input id="to-date" class="animated fadeInDown"  name="todate" placeholder="mm/dd/yyyy" ></input>
+
+   </div>
+
+  <div class="keyword-author-info">
+    <span>Keyword</span>
+    <br/>
+    <input id="keyword" name="term" class="animated fadeInDown" type="text" value="{{searchrequest}}" ></input>
+    <br/>
+
+  </div>
+
+
+  <div class="open-access-radio animated fadeInDown">
+
+    <input class="" type="checkbox" name="openaccess" value="True" >Open Access Only</input>
+  </div>
+
+
+<div>
+<input class=" animated fadeInDown submit-button" type="submit" value="submit">
+</div>
+
+</form>
+<div class="advanced-search-errors">
+  <ul>
+    <li class="date-field-req animated fadeIn">
+      *Date values in the following format required: mm/dd/yyyy
+      </li>
+      <li class="keyword-field-req animated fadeIn">
+        *Keyword required
+    </li>
+  </ul>
+</div>
+
+</div>

@@ -1,0 +1,25 @@
+
+{% load static %}
+
+{% for result in searchresults %}
+
+   <div class='article-item  animated fadeIn'>
+     <p><a href="/article/?article={{result.title}}">{{ result.title }}</a></p>
+     <span class="article-source"> {{ result.journal }} by {{ result.publisher }}</span>
+     <br/>
+     <span class="article-item-date-pub"> Published {{result.datepublished|date:"M d Y"}}</span>
+     <br/>
+     <div class="authors">
+       {% for author in result.authors %}
+            <span> {{ author }}</span>
+       {% endfor %}
+     </div>
+     {% if result.isopenaccess %}
+     <div class="article-item-oa">
+         Open Access
+     </div>
+       {% endif %}
+   </div>
+
+
+   {% endfor %}

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/article.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>{{article.title}}</title>
+</head>
+<body>
+    {% include 'articles/navigation.html' %}
+
+
+  <div class="article-profile animated fadeIn">
+       <p class="profile-title">{{article.title}}</p>
+       <div class="profile-authors">
+         {% for author in article.authors%}
+         <span>{{ author }}</span>
+         {% endfor %}
+
+      </div>
+      <p class="profile-journal">{{article.journal}} by {{article.publisher}}</p>
+        <p class="profile-published-date">{{article.datepublished|date:"M d Y"}}</p>
+        <span class="profile-doi">DOI: <a href="{{article.source_link}}" target="_blank">{{article.source_link}}</a></span>
+        <br/>
+        {% if article.isopenaccess %}
+        <p class="profile-oa">Open Access</p>
+        {% endif %}
+
+
+
+        <div class="profile-abstract">
+        <span>Abstract</span>
+        <p>{{article.abstract}}</p>
+
+        </div>
+
+    </div>
+  </body>
+
+  <script src="https://unpkg.com/popper.js@1"></script>
+  <script src="https://unpkg.com/tippy.js@4"></script>
+  <script type="text/javascript">
+
+  tippy('.profile-oa', { content: "Open access is a method that allows the full content of a research journal article to be available online, free of cost or other barriers", placement: 'right', theme:'openaccess', animateFill:false})
+
+  </script>
+  </html>

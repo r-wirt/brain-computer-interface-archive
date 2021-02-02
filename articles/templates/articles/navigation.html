@@ -1,0 +1,27 @@
+{% load static%}
+<div class="homepage-header">
+       <span onClick={props.backtohome} class="homepage-title">
+         <a href="{% url 'articles-home' %}">
+
+           Archive of
+           <br/>
+           Brain-Computer Interface Technology
+           <br/>
+           Journal Articles
+           <br/>
+             </a>
+      </span>
+
+
+        <div class="nav-bar">
+           <span><a href="/about">About</a></span>
+           <span><a href="/mostrecent">Most Recent</a></span>
+           <span><a href="/search/?term=rehabilitation">Rehabilitation</a></span>
+           <span><a href="/search/?term=communication">Communication</a></span>
+           <span><a href="/search/?term=invasive+implant">Invasive/Implant</a></span>
+        </div>
+
+         <form action="/search/">
+            <input  class="home-search-bar" name='term' type="text" placeholder="Search"/>
+         </form>
+    </div>
